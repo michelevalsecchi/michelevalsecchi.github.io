@@ -56,3 +56,5 @@
 .hero-art,.hero-art img,.research-art{border-radius:0}
 .hero-caption{justify-content:center;text-align:center;font:500 11px/1.5 var(--sans);letter-spacing:0;text-transform:none;color:var(--ink2)}
 .research-art figcaption{text-align:center}
+.brand-mark:after{display:none}
+.brand-mark{box-shadow:0 0 0 1px rgba(255,255,255,.82)}
