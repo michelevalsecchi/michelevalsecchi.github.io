@@ -45,4 +45,22 @@ document.addEventListener('DOMContentLoaded', () => {
     filterButtons.forEach(b => b.classList.toggle('active', b === button));
     publications.forEach(pub => { pub.hidden = !(filter === 'all' || pub.dataset.theme === filter); });
   }));
+
+  document.querySelectorAll('[data-slideshow]').forEach(gallery => {
+    const slides = Array.from(gallery.querySelectorAll('.research-slide'));
+    const previous = gallery.querySelector('[data-slide-prev]');
+    const next = gallery.querySelector('[data-slide-next]');
+    const count = gallery.querySelector('[data-slide-count]');
+    let activeSlide = slides.findIndex(slide => !slide.hidden);
+    if (!slides.length || !previous || !next || !count) return;
+
+    const showSlide = index => {
+      activeSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => { slide.hidden = slideIndex !== activeSlide; });
+      count.textContent = `${activeSlide + 1} / ${slides.length}`;
+    };
+    showSlide(activeSlide < 0 ? 0 : activeSlide);
+    previous.addEventListener('click', () => showSlide(activeSlide - 1));
+    next.addEventListener('click', () => showSlide(activeSlide + 1));
+  });
 });
