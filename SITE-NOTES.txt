@@ -1,1 +1,0 @@
-This site is built with static HTML, CSS and JavaScript. The research illustration is an original schematic. Keep the public CV PDF and the CV page in sync when updating career or publication information.
